@@ -1,0 +1,40 @@
+<input #textbox type="text" [(ngModel)]="textValue" required>
+<button (click)="myFunction()">Analizuj!</button>
+<p></p>
+<p></p>
+
+<div *ngIf="show == true">
+  <div class="">
+    <mat-table [dataSource]="dataSource">
+
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let user"> {{user.name}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="positive">
+        <mat-header-cell *matHeaderCellDef> Positive </mat-header-cell>
+        <mat-cell *matCellDef="let user"> {{user.positive}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="negative">
+        <mat-header-cell *matHeaderCellDef> Negative </mat-header-cell>
+        <mat-cell *matCellDef="let user"> {{user.negative}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="neutral">
+        <mat-header-cell *matHeaderCellDef> Neutral </mat-header-cell>
+        <mat-cell *matCellDef="let user"> {{user.neutral}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="overall">
+        <mat-header-cell *matHeaderCellDef> Overall </mat-header-cell>
+        <mat-cell *matCellDef="let user"> {{user.overall}} </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+    </mat-table>
+  </div>
+</div>
