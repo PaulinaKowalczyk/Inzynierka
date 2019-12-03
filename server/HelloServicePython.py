@@ -1,12 +1,11 @@
 from hello import HelloService
 # from system import modules
 # modules.clear()
+from system import path
 from polish_vader_sentiment import SentimentIntensityAnalyzer
 
 
-# print(path)
-# ['/home/kamil/.m2/repository/org/python/jython-slim/2.7.2b2/Lib',
-#  '/home/kamil/.m2/repository/org/python/jython-slim/2.7.2b2/jython-slim-2.7.2b2.jar/Lib', '__classpath__', '__pyclasspath__/', '/Users/macbook/jython2.7.1/Lib']
+#print(path)
 
 
 
