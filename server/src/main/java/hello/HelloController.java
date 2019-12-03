@@ -15,10 +15,10 @@ public class HelloController {
     @Autowired
     @Qualifier("helloServicePython")
     private HelloService service;
-
+    String text;
     @RequestMapping("/paulina")
     public List index() {
-        return service.get_result();
+        return service.get_result(text);
     }
 
 

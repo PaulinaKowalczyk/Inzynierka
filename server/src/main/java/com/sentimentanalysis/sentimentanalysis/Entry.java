@@ -13,6 +13,7 @@ import java.util.Set;
 public class Entry {
     @Id @GeneratedValue(strategy= GenerationType.AUTO)
     private int id;
+    @Column( length = 4096 )
     private @NonNull String text;
     private @NonNull Timestamp timestamp;
 
