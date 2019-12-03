@@ -62,14 +62,13 @@ class MainController {
     List saveText ( @RequestBody VaderFormDto vaderFormDto) {
 
         User u = vaderFormDto.getUser();
-        System.out.println("CHUJEK");
         Timestamp t = new Timestamp(System.currentTimeMillis());
         Entry e = new Entry();
         e.setText(vaderFormDto.getText());
         e.setTimestamp(t);
         e.setUser(u);
         entryRepository.save(e);
-        System.out.println(vaderFormDto.getText());
+        //System.out.println(vaderFormDto.getText());
         // polaczenie z pythonem
         // python chyba powinien zwracac slownik: vader: [1,1,1] slowosiec:[2,2,2]
         List pythonResults = service.get_result(vaderFormDto.getText());

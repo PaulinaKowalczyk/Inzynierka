@@ -14,15 +14,15 @@ from polish_vader_sentiment import SentimentIntensityAnalyzer
 
 class HelloServicePython(HelloService):
     def __init__(self):
-        print "Python started"
+        #print "Python started"
 
     def get_result(self, text):
-        print text
+        #print text
         text = text.encode('utf-8')
         analyzer = SentimentIntensityAnalyzer()
-        print "Analyzer started"
+        #print "Analyzer started"
         vs = analyzer.polarity_scores(text)
-        print "Polarity scores counted"
+        #print "Polarity scores counted"
         list = [
               {
                 "id": 1,
