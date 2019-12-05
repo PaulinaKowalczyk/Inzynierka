@@ -9,11 +9,11 @@ these files are files which we were comparing vader script to (source files)
 
 these files are with the tested opinion and with the exemplary (file) sentiment and vader sentiment
 structure is as follows
-<Opinion>
-file: <sentiment>\tvader: <sentiment>
+*Opinion*
+file: *sentiment* vader: *sentiment*
 
 ## X_wrongs.txt
 
 these files contain all the opinions for which the vader output did not match exemplary
 structure is as follows
-<Opinion>\t<exemplary sentiment>\t<vader sentiment>
+*Opinion* *exemplary sentiment* *vader sentiment*
