@@ -341,7 +341,7 @@ class SentimentIntensityAnalyzer(object):
             valence = self.lexicon[item_lowercase]
 
             # check for "no" as negation for an adjacent lexicon item vs "no" as its own stand-alone lexicon item
-            if item_lowercase == "nie" and \
+            if item_lowercase == "nie" and len(base_words) > i + 1 and len(words_and_emoticons) > i + 1 and\
                     (words_and_emoticons[i + 1].lower() in self.lexicon or base_words[i + 1].lower() in self.base):
                 # don't use valence of "no" as a lexicon item. Instead set it's valence to 0.0 and negate the next item
                 valence = 0.0
@@ -362,7 +362,8 @@ class SentimentIntensityAnalyzer(object):
                 # dampen the scalar modifier of preceding words and emoticons
                 # (excluding the ones that immediately preceed the item) based
                 # on their distance from the current item.
-                if i > start_i and words_and_emoticons[i - (start_i + 1)].lower()\
+                if i > start_i and words_and_emoticons[i - (start_i + 1)].lower() \
+                        and len(words_and_emoticons) > i - (start_i+1) and len(base_words) > i - (start_i+1)\
                         not in self.lexicon and base_words[i - (start_i + 1)].lower() not in self.base:
                     s = scalar_inc_dec(words_and_emoticons[i - (start_i + 1)], valence, is_cap_diff)
                     if start_i == 1 and s != 0:
@@ -377,13 +378,13 @@ class SentimentIntensityAnalyzer(object):
             if i > 0 and item.lower() == "przynajmniej":
                 valence = valence * N_SCALAR
 
-        elif base_words[i].lower() in self.base:
+        elif len(base_words) > i and base_words[i].lower() in self.base:
             item_lowercase = base_words[i].lower()
             # get the sentiment valence
             valence = self.base[item_lowercase]
 
             # check for "no" as negation for an adjacent lexicon item vs "no" as its own stand-alone lexicon item
-            if item_lowercase == "nie" and\
+            if item_lowercase == "nie" and len(base_words) > i + 1 and len(words_and_emoticons) > i + 1 and\
                     (words_and_emoticons[i + 1].lower() in self.lexicon or base_words[i + 1].lower() in self.base):
                 # don't use valence of "no" as a lexicon item. Instead set it's valence to 0.0 and negate the next item
                 valence = 0.0
