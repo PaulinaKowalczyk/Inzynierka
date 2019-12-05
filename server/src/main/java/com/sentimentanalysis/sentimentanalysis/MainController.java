@@ -62,17 +62,16 @@ class MainController {
     List saveText ( @RequestBody VaderFormDto vaderFormDto) {
 
         User u = vaderFormDto.getUser();
-
         Timestamp t = new Timestamp(System.currentTimeMillis());
         Entry e = new Entry();
         e.setText(vaderFormDto.getText());
         e.setTimestamp(t);
         e.setUser(u);
         entryRepository.save(e);
-
+        //System.out.println(vaderFormDto.getText());
         // polaczenie z pythonem
         // python chyba powinien zwracac slownik: vader: [1,1,1] slowosiec:[2,2,2]
-        List pythonResults = service.get_result();
+        List pythonResults = service.get_result(vaderFormDto.getText());
 //        System.out.println(pythonResults);
 //        List pythonResultDtoList = new LinkedList<>();
 //        for(List l:pythonResults){
@@ -129,7 +128,8 @@ class MainController {
     @GetMapping(path="/json")
     public @ResponseBody Iterable getAllEntries() {
         // This returns a JSON or XML with the users
-        List pythonResults = service.get_result();
+        String text = "asd";
+        List pythonResults = service.get_result(text);
         return pythonResults;
 }
 
