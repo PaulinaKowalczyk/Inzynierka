@@ -1,11 +1,11 @@
 from hello import HelloService
 # from system import modules
 # modules.clear()
-from system import path
+from sys import path
 from polish_vader_sentiment import SentimentIntensityAnalyzer
 
 
-#print(path)
+print(path)
 
 
 
@@ -13,7 +13,7 @@ from polish_vader_sentiment import SentimentIntensityAnalyzer
 
 class HelloServicePython(HelloService):
     def __init__(self):
-        #print "Python started"
+        print ("w/e")
 
     def get_result(self, text):
         #print text
